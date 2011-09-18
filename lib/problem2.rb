@@ -10,8 +10,9 @@
 #
 #By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 #
-#Answer: 
+#Answer: 4613732
 #
+#We need to add the even numbers terms 2 + 8 + 34, …
 #
 class Problem2
   
@@ -20,13 +21,14 @@ class Problem2
   end
   
   def sum
+
+    require_relative 'fibonacci'
+
+    array = Fibonacci.new(@maximum_value).calculate_fibonacci
     
     sum = 0
-    
-    (@maximum_value-1).downto(0) do |current_value|
-      if (current_value % 3 == 0) || (current_value % 5 == 0)
-        sum += current_value
-      end
+    array.each do |fibonacci_number|
+      sum += fibonacci_number if fibonacci_number.even?
     end
     
     sum    
@@ -35,4 +37,4 @@ class Problem2
   
 end
 
-puts "Sum is #{Problem1.new(1000).sum}"
+puts "Sum of even fibonacci therms is #{Problem2.new(4000000).sum}"
