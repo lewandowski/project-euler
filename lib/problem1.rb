@@ -1,5 +1,7 @@
 #
-# Autor: Fernando Lewandowski Albuquerque fernando.lewandowski@gmail.com https://github.com/lewandowski/project-euler
+# Autor: Fernando Lewandowski Albuquerque 
+# Email: fernando.lewandowski@gmail.com 
+# Repository: https://github.com/lewandowski/project-euler
 #
 ##Problem 1
 #05 October 2001
@@ -33,4 +35,8 @@ class Problem1
   
 end
 
-puts "Sum is #{Problem1.new(1000).sum}"
+if ARGV.nil? || ARGV.empty?
+  puts "First enter a number."
+else
+  puts "Sum is #{Problem1.new(ARGV.first.to_i).sum}"
+end

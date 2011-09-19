@@ -1,9 +1,11 @@
 #
-# Autor: Fernando Lewandowski Albuquerque fernando.lewandowski@gmail.com https://github.com/lewandowski/project-euler
+# Autor: Fernando Lewandowski Albuquerque 
+# Email: fernando.lewandowski@gmail.com 
+# Repository: https://github.com/lewandowski/project-euler
 #
 class Fibonacci
 
-  def initialize maximum_value
+  def initialize maximum_value=0
     @array = []
     @maximum_value = maximum_value
   end
@@ -31,4 +33,4 @@ class Fibonacci
   
 end
 
-puts "Fibonacci is #{Fibonacci.new(4000000).calculate_fibonacci}"
+#puts "Fibonacci of #{ARGV.first.to_i} is #{Fibonacci.new(ARGV.first.to_i).calculate_fibonacci}"

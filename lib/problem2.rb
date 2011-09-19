@@ -1,5 +1,7 @@
 #
-# Autor: Fernando Lewandowski Albuquerque fernando.lewandowski@gmail.com https://github.com/lewandowski/project-euler
+# Autor: Fernando Lewandowski Albuquerque 
+# Email: fernando.lewandowski@gmail.com 
+# Repository: https://github.com/lewandowski/project-euler
 #
 #Problem 2
 #19 October 2001
@@ -14,6 +16,9 @@
 #
 #We need to add the even numbers terms 2 + 8 + 34, …
 #
+
+require_relative 'fibonacci'
+
 class Problem2
   
   def initialize maximum_value
@@ -21,8 +26,6 @@ class Problem2
   end
   
   def sum
-
-    require_relative 'fibonacci'
 
     array = Fibonacci.new(@maximum_value).calculate_fibonacci
     
@@ -37,4 +40,8 @@ class Problem2
   
 end
 
-puts "Sum of even fibonacci therms is #{Problem2.new(4000000).sum}"
+if ARGV.nil? || ARGV.empty?
+  puts "First enter a number."
+else
+  puts "Sum of even fibonacci therms is #{Problem2.new(ARGV.first.to_i).sum}"
+end
