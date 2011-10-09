@@ -37,6 +37,6 @@ if ARGV.nil? || ARGV.empty?
   puts "First enter a number."
 else
   puts Time.now
-  puts "The difference between the sum of the squares of the first #{ARGV.first.to_i} natural numbers and the square of the sum is #{Problem6.new(ARGV.first.to_i).calculate}"
+  puts "The xxxxx difference between the sum of the squares of the first #{ARGV.first.to_i} natural numbers and the square of the sum is #{Problem6.new(ARGV.first.to_i).calculate}"
   puts Time.now
 end
