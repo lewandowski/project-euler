@@ -18,18 +18,35 @@
 #Find the difference between the sum of the squares of the first one hundred 
 #natural numbers and the square of the sum.
 #
-# Answer: 
+# Answer: 25164150
 #
+require_relative 'math_module'
 
 class Problem6
+  include MathModule::Progression::Arithimetic
   
-  def initialize value
-    @value = value
+  def initialize v1, v2, r=1, pot=2
+    @value_1 = v1
+    @value_2 = v2
+    @r = r
+    @pot = pot
   end
   
+  def sum_of_squares
+    tot = 0
+    @value_1.upto(@value_2) do |v|
+      tot += (v**@pot)
+    end
+    tot
+  end
+  
+  def calculate_square_of_sum
+    sum_pa(@value_1, @value_2, @r) ** @pot
+  end
+
   def calculate
-    @value
-  end  
+    calculate_square_of_sum - sum_of_squares
+  end
   
 end
 
@@ -37,6 +54,6 @@ if ARGV.nil? || ARGV.empty?
   puts "First enter a number."
 else
   puts Time.now
-  puts "The difference between the sum of the squares of the first #{ARGV.first.to_i} natural numbers and the square of the sum is #{Problem6.new(ARGV.first.to_i).calculate}"
+  puts "The difference between the sum of the squares of the first #{ARGV[0].to_i} and #{ARGV[1].to_i}  natural numbers and the square of the sum is #{Problem6.new(ARGV[0].to_i, ARGV[1].to_i, ARGV[2].to_i, ARGV[3].to_i).calculate}"
   puts Time.now
 end

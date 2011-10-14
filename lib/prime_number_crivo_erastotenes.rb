@@ -31,11 +31,31 @@ class PrimeNumberCrivoErastotenes
     @array = []
     scan do |line, column| 
       number = (line.to_s + column.to_s).to_i
-      @matrix[line][column] = !is_multiple_of(number, @array_multiples) && number >= 2
+      @matrix[line][column] = !is_multiple_of(number, @array_multiples, false) && number >= 2
       @array << number if @matrix[line][column]
     end
     
     @array
+    
+  end
+  
+  def calculate_ordinal
+    
+    n = 2
+    array = []
+    
+    loop do
+      puts "... processando #{n} ..."
+      array = PrimeNumberCrivoErastotenes.new(n).calculate
+      if array.size >= @maximum_value-1 && array[@maximum_value-1]
+        break 
+      else
+#        n = (n**2)
+        n += 1000
+      end
+    end
+
+    array[@maximum_value-1]
     
   end
   
@@ -97,4 +117,5 @@ end
 
 #puts Time.now
 #puts "The prime numbers of #{ARGV.first.to_i} by crivo erastotenes are #{PrimeNumberCrivoErastotenes.new(ARGV.first.to_i).calculate}"
+##puts "The #{ARGV.first.to_i}º prime number is #{PrimeNumberCrivoErastotenes.new(ARGV.first.to_i).calculate_ordinal}"
 #puts Time.now

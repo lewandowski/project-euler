@@ -7,12 +7,12 @@ module MathModule
   
   module MultipleModule
     
-    def is_multiple_of value, multiples
+    def is_multiple_of value, multiples, eql=true
       
       is_multiple = false
       
       multiples.each do |multiple|
-        if is_multiple == false && multiple < value
+        if is_multiple == false && ((multiple <= value && eql) || (multiple < value && !eql))
           is_multiple = value % multiple == 0 
         end
       end
@@ -56,6 +56,26 @@ module MathModule
     def is_palindromic number
       number.to_s == number.to_s.reverse
     end
+    
+  end
+  
+  module Progression
+    
+    module Arithimetic
+      
+      def size_pa n1, nn, r=1
+        ((nn-n1)+r)/r
+      end
+      
+      def sum_pa n1, nn, r=1
+        (size_pa(n1, nn, r)*(n1+nn))/2
+      end
+      
+    end
+    
+    module Geometric
+      
+    end    
     
   end
   
