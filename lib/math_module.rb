@@ -51,6 +51,28 @@ module MathModule
     
   end
   
+  module DivisorModule
+    
+    def divisors value
+      
+      return if value < 1
+      
+      array = []
+      array << value
+      v = (value / 2).truncate
+      
+      v.downto(1) do |x|
+        if value % x == 0
+          array << x
+        end
+      end
+    
+      array
+      
+    end
+    
+  end
+  
   module PalindromicModule
     
     def is_palindromic number

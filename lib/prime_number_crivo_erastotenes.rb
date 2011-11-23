@@ -8,12 +8,15 @@
 # Seguem-se os seguintes passos:
 #1. Escrevem-se todos os números até 101 
 #2. Cortam-se, com um traço, todos os múltiplos de 2; 
-#3. A cada passo seguinte cortam-se todos os números múltiplos do seguinte menor número restante de p, que seja maior do que p. 
+#3. A cada passo seguinte cortam-se todos os números múltiplos do seguinte menor 
+#número restante de p, que seja maior do que p. 
 #4. É suficiente fazê-lo até p2 < 101.
 #
-#Embora todos os múltiplos de 2,3,5,7 < 1011/2 sejam cortados, resta-nos número 53, que é primo pois ficou sem ser cortado na tabela.
+#Embora todos os múltiplos de 2,3,5,7 < 1011/2 sejam cortados, resta-nos número 
+#53, que é primo pois ficou sem ser cortado na tabela.
 #
-#Então os números primos até 101 são, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101.
+#Então os números primos até 101 são, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 
+#37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101.
 #  
 require_relative 'math_module'
 
@@ -27,7 +30,6 @@ class PrimeNumberCrivoErastotenes
   end
 
   def calculate
-    
     @array = []
     scan do |line, column| 
       number = (line.to_s + column.to_s).to_i
@@ -93,7 +95,7 @@ class PrimeNumberCrivoErastotenes
 
       2.upto(maximum_multiple) do |i|
         @array_multiples << i
-      end if maximum_multiple > 2    
+      end if maximum_multiple >= 2    
       
     end
     
