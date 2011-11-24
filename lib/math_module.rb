@@ -101,4 +101,26 @@ module MathModule
     
   end
   
+  module CollatzModule
+    
+    def collatz_fn_gen n, a
+      
+      v = 0
+      if n.even?
+        v = n/2
+      else
+        v = (3*n)+1
+      end
+      
+      a << n if a.empty?
+      a << v
+      
+      collatz_fn_gen(v, a) if v > 1
+      
+      a
+      
+    end
+    
+  end
+  
 end

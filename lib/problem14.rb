@@ -22,23 +22,42 @@
 #
 #NOTE: Once the chain starts the terms are allowed to go above one million.
 #
-# Answer: 
+# Answer: 837799
 #
 
 require_relative 'math_module'
 
 class Problem14
+  include MathModule::CollatzModule
   
-  def initialize
-    
+  def initialize limit
+    @limit = limit
   end
   
   def calculate
+    
+    s = 0
+    z = 0
+    @limit.downto(1) do |x|
+      a = []
+      size = collatz_fn_gen(x, a).size
+      if size > s
+        s = size 
+        z = x
+      end
+#      puts "[#{s}] size=#{size} The chain of value #{x} is a=#{a.inspect}"      
+    end
+
+    z
     
   end
   
 end
 
-puts Time.now
-puts "Which starting number, under one million, the longest chain is #{Problem14.new().calculate}"  
-puts Time.now
+if ARGV.nil? || ARGV.empty?
+  puts "First enter a number."
+else
+  puts Time.now
+  puts "Which starting number, under #{ARGV[0].to_i}, the longest chain is #{Problem14.new(ARGV[0].to_i).calculate}"  
+  puts Time.now
+end
