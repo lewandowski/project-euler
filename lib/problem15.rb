@@ -6,7 +6,7 @@
 #Problem 15
 #19 April 2002
 #
-#Starting in the top left corner of a 22 grid, there are 6 routes (without 
+#Starting in the top left corner of a 2x2 grid, there are 6 routes (without 
 #backtracking) to the bottom right corner.
 #
 # imagem in https://projecteuler.net/project/images/p_015.gif
