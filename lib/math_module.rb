@@ -21,6 +21,18 @@ module MathModule
       
     end
     
+    def next_multiple_of(number, multiple)
+      next_multiple = number
+      0.upto(multiple) do |i|
+        n = number+i
+        if is_multiple_of(n, [multiple])
+          next_multiple = n
+          break
+        end
+      end
+      next_multiple
+    end
+    
   end
   
   module FactoringModule
