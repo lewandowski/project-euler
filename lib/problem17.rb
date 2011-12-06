@@ -18,15 +18,47 @@
 #letters. The use of "and" when writing out numbers is in compliance with 
 #British usage.
 #
-# Answer: 
+# Answer: 21124
 #
+#erro detectado em 
+#two hundred and twenty
+#two hundred twenty
+
+require_relative 'number_full_module'
 
 class Problem17
+  include NumberFullModule
   
-  def initialize 
+  def initialize limit, locale="en"
+    @limit = limit
+    @locale = locale
   end
   
   def calculate
+    
+    c = 0
+    1.upto(@limit) do |i|
+      str = NumberFull.new(i, @locale).calculate
+      str.gsub!(" ", "")
+      str.gsub!("-", "")
+#      puts "#{i}=#{str}"
+      c += str.size
+    end
+    c
+    
+#    c = 0
+#    1.upto(@limit) do |i|
+#      str = NumberFull.new(i, "pt_br").calculate
+#      puts str
+#      str = NumberFull.new(i, "en").calculate
+#      puts str
+#      puts "==================================="
+#      str.gsub!(" ", "")
+#      str.gsub!("-", "")
+#      c += str.size
+#    end
+#    c    
+    
   end
   
 end
@@ -35,6 +67,6 @@ if ARGV.nil? || ARGV.empty?
   puts "First enter a number."
 else
   puts Time.now
-  puts "The sum of the digits of the number 2**#{ARGV[0].to_i} is #{Problem17.new(ARGV[0].to_i).calculate}."  
+  puts "If all the numbers from 1 to #{ARGV[0].to_i} inclusive were written out in words, will be used #{Problem17.new(ARGV[0].to_i, ARGV[1]).calculate} letters."  
   puts Time.now
 end
