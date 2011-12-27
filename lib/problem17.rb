@@ -20,9 +20,6 @@
 #
 # Answer: 21124
 #
-#erro detectado em 
-#two hundred and twenty
-#two hundred twenty
 
 require_relative 'number_full_module'
 

@@ -65,12 +65,12 @@ module MathModule
   
   module DivisorModule
     
-    def divisors value
+    def self.divisors value, show_value=true
       
       return if value < 1
       
       array = []
-      array << value
+      array << value if show_value
       v = (value / 2).truncate
       
       v.downto(1) do |x|
@@ -81,6 +81,28 @@ module MathModule
     
       array
       
+    end
+    
+  end
+  
+  module MathematicalAnalysisModule
+    
+    def perfect_number? number
+      sum_divisors(number) == number
+    end
+
+    def abundant_number? number
+      sum_divisors(number) > number
+    end
+
+    def deficient_number? number
+      sum_divisors(number) < number
+    end
+    
+    def sum_divisors number
+      sum = 0
+      DivisorModule.divisors(number, false).each { |n| sum += n }
+      sum
     end
     
   end
@@ -131,6 +153,21 @@ module MathModule
       
       a
       
+    end
+    
+  end
+  
+  module FactorialModule
+    
+#    10! = 10 x 9 x ... x 3 x 2 x 1
+    def factorial(number)
+      r = nil
+      if (number == 0)
+        r = 1
+      else
+        r = number * factorial(number - 1)
+      end
+      r
     end
     
   end
